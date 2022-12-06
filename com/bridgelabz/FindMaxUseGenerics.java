@@ -7,20 +7,20 @@ import java.util.Scanner;
  */
 public class FindMaxUseGenerics {
     /**
-     * find the maximum value
+     * find the maximum float value
      */
-    Integer firstNumber;
-    Integer secondNumber;
-    Integer thirdNumber;
+    Float firstNumber;
+    Float secondNumber;
+    Float thirdNumber;
 
-    public int maxNumber(Integer firstNumber, Integer secondNumber, Integer thirdNumber) {
+    public float maxNumber(Float firstNumber, Float secondNumber, Float thirdNumber) {
         /**
-         * maxNumber method used to find max number and return max number of Integer
+         * maxNumber method used to find max number and return max number of Floats
          */
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
         this.thirdNumber = thirdNumber;
-        int max = firstNumber;
+        float max = firstNumber;
         if (secondNumber.compareTo(max) == 1) {
             max = secondNumber;
         }
@@ -32,17 +32,17 @@ public class FindMaxUseGenerics {
 
     public static void main(String[] args) {
         /**
-         * in this method call the maxNumber method through object and print max number of Integer
+         * in this method call the maxNumber method through object and print max number of Floats
          */
         Scanner input = new Scanner(System.in);
         FindMaxUseGenerics max = new FindMaxUseGenerics();
         System.out.print("Enter first number : ");
-        int firstNumber = input.nextInt();
+        float firstNumber = input.nextFloat();
         System.out.print("Enter second number : ");
-        int secondNumber = input.nextInt();
+        float secondNumber = input.nextFloat();
         System.out.print("Enter first number : ");
-        int thirdNumber = input.nextInt();
-        int maxNumber = max.maxNumber(firstNumber, secondNumber, thirdNumber);
-        System.out.println("Largest number is " + maxNumber);
+        float thirdNumber = input.nextFloat();
+        float maxNumber = max.maxNumber(firstNumber, secondNumber, thirdNumber);
+        System.out.println("Largest float number is " + maxNumber);
     }
 }
