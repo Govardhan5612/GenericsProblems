@@ -5,15 +5,21 @@ import java.util.Scanner;
 /**
  * @author Govard hanReddy
  */
-public class FindMaxUseGenerics {
+public class FindMaxUseGenerics<T extends Comparable<T>> {
     /**
-     * find the maximum values using generic methods
+     * find the maximum values using generic class
      */
+    T firstValue, secondValue, thirdValue;
 
+    public FindMaxUseGenerics(T firstValue, T secondValue, T thirdValue) {
+        this.firstValue = firstValue;
+        this.secondValue = secondValue;
+        this.thirdValue = thirdValue;
+    }
 
-    public static <T extends Comparable<T>> void maxNumber(T firstValue, T secondValue, T thirdValue) {
+    public void maxNumber() {
         /**
-         * maxNumber Generic method used to find max number and return max value
+         * maxNumber Generic class used to find max number and return max value
          */
 
         T maxValue = firstValue;
@@ -36,26 +42,27 @@ public class FindMaxUseGenerics {
         String thirdValue = "Banana";
         System.out.println("Max String :-");
         /**
-         * use generic method to use find max string value
+         * use generic class to use find max string value
          */
-        maxNumber(firstValue, secondValue, thirdValue);
+        FindMaxUseGenerics maxOfString = new FindMaxUseGenerics(firstValue, secondValue, thirdValue);
+        maxOfString.maxNumber();
         Integer firstIntNumber = 124;
         Integer secondIntNumber = 136;
         Integer thirdIntNumber = 120;
         System.out.println("Max Integer :-");
         /**
-         * use generic method to use find max Integer number
+         * use generic class to use find max Integer number
          */
-        maxNumber(firstIntNumber, secondIntNumber, thirdIntNumber);
+        FindMaxUseGenerics maxOfInteger = new FindMaxUseGenerics(firstIntNumber, secondIntNumber, thirdIntNumber);
+        maxOfInteger.maxNumber();
         Float firstFloatNumber = 20.5f;
         Float secondFloatNumber = 30.2f;
         Float thirdFloatNumber = 20.8f;
-        System.out.println("Max Integer :-");
+        System.out.println("Max Float :-");
         /**
-         * use generic method to use find max Float number
+         * use generic class to use find max Float number
          */
-        maxNumber(firstFloatNumber, secondFloatNumber, thirdFloatNumber);
-
-
+        FindMaxUseGenerics maxOfFloat = new FindMaxUseGenerics(firstFloatNumber, secondFloatNumber, thirdFloatNumber);
+        maxOfFloat.maxNumber();
     }
 }
