@@ -7,43 +7,55 @@ import java.util.Scanner;
  */
 public class FindMaxUseGenerics {
     /**
-     * find the maximum string
+     * find the maximum values using generic methods
      */
-    String firstValue;
-    String secondValue;
-    String thirdValue;
 
-    public String maxNumber(String firstValue, String secondValue, String thirdValue) {
+
+    public static <T extends Comparable<T>> void maxNumber(T firstValue, T secondValue, T thirdValue) {
         /**
-         * maxNumber method used to find max number and return max value of Strings
+         * maxNumber Generic method used to find max number and return max value
          */
-        this.firstValue = firstValue;
-        this.secondValue = secondValue;
-        this.thirdValue = thirdValue;
-        String max = firstValue;
-        if (secondValue.compareTo(max) == 1) {
-            max = secondValue;
+
+        T maxValue = firstValue;
+        if (secondValue.compareTo(maxValue) == 1) {
+            maxValue = secondValue;
         }
-        if (thirdValue.compareTo(max) == 1) {
-            max = thirdValue;
+        if (thirdValue.compareTo(maxValue) == 1) {
+            maxValue = thirdValue;
         }
-        return max;
+        System.out.println("Maximum value : " + maxValue);
     }
 
     public static void main(String[] args) {
         /**
-         * in this method call the maxNumber method through object and print max value of String
-         * Eg - Apple,Peach,Banana
+         * in this method call the maxNumber method  print max value
+         * string Eg - Apple,Peach,Banana
          */
-        Scanner input = new Scanner(System.in);
-        FindMaxUseGenerics max = new FindMaxUseGenerics();
-        System.out.print("Enter first String value : ");
-        String firstValue = input.next();
-        System.out.print("Enter second String value : ");
-        String secondValue = input.next();
-        System.out.print("Enter third String value : ");
-        String thirdValue = input.next();
-        String maxValue = max.maxNumber(firstValue, secondValue, thirdValue);
-        System.out.println("Largest String value is " + maxValue);
+        String firstValue = "Apple";
+        String secondValue = "Peach";
+        String thirdValue = "Banana";
+        System.out.println("Max String :-");
+        /**
+         * use generic method to use find max string value
+         */
+        maxNumber(firstValue, secondValue, thirdValue);
+        Integer firstIntNumber = 124;
+        Integer secondIntNumber = 136;
+        Integer thirdIntNumber = 120;
+        System.out.println("Max Integer :-");
+        /**
+         * use generic method to use find max Integer number
+         */
+        maxNumber(firstIntNumber, secondIntNumber, thirdIntNumber);
+        Float firstFloatNumber = 20.5f;
+        Float secondFloatNumber = 30.2f;
+        Float thirdFloatNumber = 20.8f;
+        System.out.println("Max Integer :-");
+        /**
+         * use generic method to use find max Float number
+         */
+        maxNumber(firstFloatNumber, secondFloatNumber, thirdFloatNumber);
+
+
     }
 }
