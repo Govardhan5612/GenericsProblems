@@ -1,68 +1,40 @@
 package com.bridgelabz;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 /**
  * @author Govard hanReddy
  */
-public class FindMaxUseGenerics<T extends Comparable<T>> {
+public class FindMaxUseGenerics<T> {
     /**
      * find the maximum values using generic class
      */
-    T firstValue, secondValue, thirdValue;
 
-    public FindMaxUseGenerics(T firstValue, T secondValue, T thirdValue) {
-        this.firstValue = firstValue;
-        this.secondValue = secondValue;
-        this.thirdValue = thirdValue;
-    }
-
-    public void maxNumber() {
+    public void maxNumber(T[] array) {
         /**
-         * maxNumber Generic class used to find max number and return max value
+         * maxNumber Generic class used to find max value and return max value
+         * use Arrays class sort static method to print the array in ascending order
          */
-
-        T maxValue = firstValue;
-        if (secondValue.compareTo(maxValue) == 1) {
-            maxValue = secondValue;
+        Arrays.sort(array);
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
-        if (thirdValue.compareTo(maxValue) == 1) {
-            maxValue = thirdValue;
-        }
-        System.out.println("Maximum value : " + maxValue);
+        System.out.println();
     }
 
     public static void main(String[] args) {
         /**
-         * in this method call the maxNumber method  print max value
-         * string Eg - Apple,Peach,Banana
+         * In this method use class level generics to print all object array in single generic
          */
-        String firstValue = "Apple";
-        String secondValue = "Peach";
-        String thirdValue = "Banana";
-        System.out.println("Max String :-");
-        /**
-         * use generic class to use find max string value
-         */
-        FindMaxUseGenerics maxOfString = new FindMaxUseGenerics(firstValue, secondValue, thirdValue);
-        maxOfString.maxNumber();
-        Integer firstIntNumber = 124;
-        Integer secondIntNumber = 136;
-        Integer thirdIntNumber = 120;
-        System.out.println("Max Integer :-");
-        /**
-         * use generic class to use find max Integer number
-         */
-        FindMaxUseGenerics maxOfInteger = new FindMaxUseGenerics(firstIntNumber, secondIntNumber, thirdIntNumber);
-        maxOfInteger.maxNumber();
-        Float firstFloatNumber = 20.5f;
-        Float secondFloatNumber = 30.2f;
-        Float thirdFloatNumber = 20.8f;
-        System.out.println("Max Float :-");
-        /**
-         * use generic class to use find max Float number
-         */
-        FindMaxUseGenerics maxOfFloat = new FindMaxUseGenerics(firstFloatNumber, secondFloatNumber, thirdFloatNumber);
-        maxOfFloat.maxNumber();
+        FindMaxUseGenerics max = new FindMaxUseGenerics();
+        Integer[] integerArray = {1, 5, 7, 8, 9, 6, 4};
+        String[] stringArray = {"Ram", "Ravi", "Raju", "Surya"};
+        Float[] floatArray = {1.5f, 6.5f, 4.5f, 8.4f, 1.3f, 6.5f};
+        System.out.println("Print Integer array :- ");
+        max.maxNumber(integerArray);
+        System.out.println("Print Float array :- ");
+        max.maxNumber(floatArray);
+        System.out.println("Print String array :- ");
+        max.maxNumber(stringArray);
     }
 }
