@@ -7,42 +7,43 @@ import java.util.Scanner;
  */
 public class FindMaxUseGenerics {
     /**
-     * find the maximum float value
+     * find the maximum string
      */
-    Float firstNumber;
-    Float secondNumber;
-    Float thirdNumber;
+    String firstValue;
+    String secondValue;
+    String thirdValue;
 
-    public float maxNumber(Float firstNumber, Float secondNumber, Float thirdNumber) {
+    public String maxNumber(String firstValue, String secondValue, String thirdValue) {
         /**
-         * maxNumber method used to find max number and return max number of Floats
+         * maxNumber method used to find max number and return max value of Strings
          */
-        this.firstNumber = firstNumber;
-        this.secondNumber = secondNumber;
-        this.thirdNumber = thirdNumber;
-        float max = firstNumber;
-        if (secondNumber.compareTo(max) == 1) {
-            max = secondNumber;
+        this.firstValue = firstValue;
+        this.secondValue = secondValue;
+        this.thirdValue = thirdValue;
+        String max = firstValue;
+        if (secondValue.compareTo(max) == 1) {
+            max = secondValue;
         }
-        if (thirdNumber.compareTo(max) == 1) {
-            max = thirdNumber;
+        if (thirdValue.compareTo(max) == 1) {
+            max = thirdValue;
         }
         return max;
     }
 
     public static void main(String[] args) {
         /**
-         * in this method call the maxNumber method through object and print max number of Floats
+         * in this method call the maxNumber method through object and print max value of String
+         * Eg - Apple,Peach,Banana
          */
         Scanner input = new Scanner(System.in);
         FindMaxUseGenerics max = new FindMaxUseGenerics();
-        System.out.print("Enter first number : ");
-        float firstNumber = input.nextFloat();
-        System.out.print("Enter second number : ");
-        float secondNumber = input.nextFloat();
-        System.out.print("Enter first number : ");
-        float thirdNumber = input.nextFloat();
-        float maxNumber = max.maxNumber(firstNumber, secondNumber, thirdNumber);
-        System.out.println("Largest float number is " + maxNumber);
+        System.out.print("Enter first String value : ");
+        String firstValue = input.next();
+        System.out.print("Enter second String value : ");
+        String secondValue = input.next();
+        System.out.print("Enter third String value : ");
+        String thirdValue = input.next();
+        String maxValue = max.maxNumber(firstValue, secondValue, thirdValue);
+        System.out.println("Largest String value is " + maxValue);
     }
 }
